@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+/.vs/Bird/FileContentIndex
+/.vs/Bird/v17
+/Bird/x64/Debug/Bird.tlog
+/Bird/x64/Debug
+/Bird.sln
+/Bird.vcxproj
+/Bird.vcxproj.filters
+/Bird.vcxproj.user
+/x64/Debug/Bird.pdb
