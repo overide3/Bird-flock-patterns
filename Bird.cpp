@@ -4,7 +4,7 @@
 #include <cmath>
 using namespace std;
 
-std::vector<int> Bird::find_birds(std::vector<Bird> list)
+void Bird::find_birds(std::vector<Bird> list)
 {
 	vector<int> indexs;
 	for (int i = 0; i < list.size(); i++)
@@ -56,8 +56,8 @@ std::vector<int> Bird::find_birds(std::vector<Bird> list)
 				indexs.push_back(i);
 			}
 		}
-
 	}
+	indexes = indexs;
 }
 
 Bird::Bird(float pos_x, float pos_y, int velocity, float direction, int visionR, int visionA, int seperation)
@@ -96,6 +96,13 @@ sf::RectangleShape Bird::get_shape()
 
 void Bird::alignment(std::vector<Bird> list)
 {
+	float angle;
+	for (int i = 0; i < indexes.size(); i++)
+	{
+		angle += list[indexes[i]].get_dir();
+	}
+	angle = angle / indexes.size();
+	dir = angle;
 }
 
 void Bird::separation(std::vector<Bird> list)
