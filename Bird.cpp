@@ -60,8 +60,18 @@ std::vector<int> Bird::find_birds(std::vector<Bird> list)
 	}
 }
 
-Bird::Bird(float x, float y, int velocity, float direction, int visionR, int visionA, int seperation)
+Bird::Bird(float pos_x, float pos_y, int velocity, float direction, int visionR, int visionA, int seperation)
 {
+	x = pos_x;
+	y = pos_y;
+	vel = velocity;
+	dir = direction;
+	VisionR = visionR;
+	VisionTheta = visionA;
+	sep = seperation;
+	self.setSize(sf::Vector2f(5, 5));
+	self.setFillColor(sf::Color::Cyan);
+	self.setPosition(x, y);
 }
 
 float Bird::get_dir()
