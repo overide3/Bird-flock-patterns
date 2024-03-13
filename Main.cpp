@@ -3,8 +3,8 @@
 
 int main()
 {
-	int WWidth = 1920;
-	int WHeight = 1080;
+	int WWidth = 1080;
+	int WHeight = 1920;
 	sf::RenderWindow window(sf::VideoMode(WHeight, WWidth), "Window");
 
 	while (window.isOpen())
