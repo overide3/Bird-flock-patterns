@@ -12,7 +12,8 @@ private:
 	int VisionTheta;
 	sf::RectangleShape self;
 	int sep;
-	std::vector<int> find_birds(std::vector<Bird> list);
+	std::vector<int> indexes;
+	void find_birds(std::vector<Bird> list);
 public:
 	Bird(float pos_x, float pos_y, int velocity, float direction, int visionR, int visionA, int seperation);
 	float get_dir();
