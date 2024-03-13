@@ -107,6 +107,10 @@ void Bird::alignment(std::vector<Bird> list)
 
 void Bird::separation(std::vector<Bird> list)
 {
+	float angle = dir;
+	for (int i = 0; i < indexes.size(); i++)
+	{
+	}
 }
 
 void Bird::cohesion(std::vector<Bird> list)
