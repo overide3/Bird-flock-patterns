@@ -96,7 +96,7 @@ sf::RectangleShape Bird::get_shape()
 
 void Bird::alignment(std::vector<Bird> list)
 {
-	float angle;
+	float angle = 0;
 	for (int i = 0; i < indexes.size(); i++)
 	{
 		angle += list[indexes[i]].get_dir();
