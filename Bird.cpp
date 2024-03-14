@@ -134,6 +134,14 @@ void Bird::separation(std::vector<Bird> list)
 			}
 		}
 	}
+	if (angle < 0)
+	{
+		angle = 360 + angle;
+	}
+	else if (angle > 360)
+	{
+		angle = 0 + (angle - 360);
+	}
 	dir = angle;
 }
 
