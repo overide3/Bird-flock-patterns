@@ -9,36 +9,10 @@ void Bird::find_birds(std::vector<Bird> list)
 	vector<int> indexs;
 	for (int i = 0; i < list.size(); i++)
 	{
+		float psi = get_angle(list[i]);
 		float x_diff = x - list[i].get_x();
 		float y_diff = y - list[i].get_y();
 		float dist = sqrt(pow(x_diff, 2) + pow(y_diff, 2));
-		float psi = 0.0f;
-		if (x_diff > 0)
-		{
-			if (y_diff > 0)
-			{
-				psi = atan((x_diff / y_diff));
-			}
-			else
-			{
-				psi = atan((x_diff / (-y_diff)));
-				psi += 270;
-			}
-
-		}
-		else
-		{
-			if (y_diff > 0)
-			{
-				psi = atan(((-x_diff) / y_diff));
-				psi += 90;
-			}
-			else
-			{
-				psi = atan(((-x_diff) / (-y_diff)));
-				psi += 180;
-			}
-		}
 		if ((dist > VisionR))
 		{
 			float lbound = dir - VisionTheta;
@@ -58,6 +32,40 @@ void Bird::find_birds(std::vector<Bird> list)
 		}
 	}
 	indexes = indexs;
+}
+
+float Bird::get_angle(Bird other)
+{
+	float x_diff = x - other.get_x();
+	float y_diff = y - other.get_y();
+	float psi = 0.0f;
+	if (x_diff > 0)
+	{
+		if (y_diff > 0)
+		{
+			psi = atan((x_diff / y_diff));
+		}
+		else
+		{
+			psi = atan((x_diff / (-y_diff)));
+			psi += 270;
+		}
+
+	}
+	else
+	{
+		if (y_diff > 0)
+		{
+			psi = atan(((-x_diff) / y_diff));
+			psi += 90;
+		}
+		else
+		{
+			psi = atan(((-x_diff) / (-y_diff)));
+			psi += 180;
+		}
+	}
+	return psi;
 }
 
 Bird::Bird(float pos_x, float pos_y, int velocity, float direction, int visionR, int visionA, int seperation)
