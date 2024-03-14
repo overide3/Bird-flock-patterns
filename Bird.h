@@ -14,6 +14,7 @@ private:
 	int sep;
 	std::vector<int> indexes;
 	void find_birds(std::vector<Bird> list);
+	float get_angle(Bird other);
 public:
 	Bird(float pos_x, float pos_y, int velocity, float direction, int visionR, int visionA, int seperation);
 	float get_dir();
