@@ -84,22 +84,22 @@ Bird::Bird(float pos_x, float pos_y, int velocity, float direction, int visionR,
 
 float Bird::get_dir()
 {
-	return 0.0f;
+	return dir;
 }
 
 float Bird::get_x()
 {
-	return 0.0f;
+	return x;
 }
 
 float Bird::get_y()
 {
-	return 0.0f;
+	return y;
 }
 
 sf::RectangleShape Bird::get_shape()
 {
-	return sf::RectangleShape();
+	return self;
 }
 
 void Bird::alignment(std::vector<Bird> list)
