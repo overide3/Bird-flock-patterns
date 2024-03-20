@@ -24,6 +24,6 @@ public:
 	void alignment(std::vector<Bird> list);
 	bool separation(std::vector<Bird> list);
 	void cohesion(std::vector<Bird> list);
-	void update();
+	void update(int ww, int wh);
 };
 
