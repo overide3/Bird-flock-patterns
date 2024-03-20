@@ -22,7 +22,7 @@ public:
 	float get_y();
 	sf::RectangleShape get_shape();
 	void alignment(std::vector<Bird> list);
-	void separation(std::vector<Bird> list);
+	bool separation(std::vector<Bird> list);
 	void cohesion(std::vector<Bird> list);
 	void update();
 };
