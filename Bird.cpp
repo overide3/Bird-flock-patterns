@@ -111,7 +111,7 @@ bool Bird::separation(std::vector<Bird> list)
 	float angle = dir;
 	for (int i = 0; i < indexes.size(); i++)
 	{
-		float distance = sqrt(pow(list[indexes[i]].get_x(), 2) + pow(list[indexes[i]].get_y(), 2));
+		float distance = sqrt(pow(list[indexes[i]].get_x() - x, 2) + pow(list[indexes[i]].get_y() - y, 2));
 		if (distance < sep)
 		{
 			float lbound = angle + 180;
@@ -151,6 +151,46 @@ bool Bird::separation(std::vector<Bird> list)
 
 void Bird::cohesion(std::vector<Bird> list)
 {
+	float angle = dir;
+	int max_i = 0;
+	float max_d = 0;
+	for (int i = 0; i < indexes.size(); i++)
+	{
+		float distance = sqrt(pow(list[indexes[i]].get_x() - x, 2) + pow(list[indexes[i]].get_y() - y, 2));
+		if (distance >= max_d)
+		{
+			max_i = i;
+			max_d = distance;
+		}
+	}
+	float lbound = angle + 180;
+	if (lbound > 360)
+	{
+		lbound = 0 + (lbound - 360);
+	}
+	float hbound = angle - 180;
+	if (hbound < 0)
+	{
+		hbound = 360 + hbound;
+	}
+
+	if (list[indexes[max_i]].get_dir() > hbound or list[indexes[max_i]].get_dir() < lbound)
+	{
+		angle += 20;
+	}
+	else
+	{
+		angle -= 20;
+	}
+	if (angle < 0)
+	{
+		angle = 360 + angle;
+	}
+	else if (angle > 360)
+	{
+		angle = 0 + (angle - 360);
+	}
+	dir = angle;
 }
 
 void Bird::update()
