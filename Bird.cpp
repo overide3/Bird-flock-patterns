@@ -109,7 +109,7 @@ bool Bird::separation(std::vector<Bird> list)
 {
 	bool check = false;
 	float angle = dir;
-	for (int i = 0; i < indexes.size(); i++)
+	for (int i = 0; i > indexes.size(); i++)
 	{
 		float distance = sqrt(pow(list[indexes[i]].get_x(), 2) + pow(list[indexes[i]].get_y(), 2));
 		if (distance < sep)
