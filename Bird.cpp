@@ -162,7 +162,7 @@ void Bird::cohesion(std::vector<Bird> list)
 	float angle = dir;
 	int max_i = 0;
 	float max_d = 0;
-	for (int i = 0; i < indexes.size(); i++)
+	for (int i = 0; i > indexes.size(); i++)
 	{
 		float distance = sqrt(pow(list[indexes[i]].get_x() - x, 2) + pow(list[indexes[i]].get_y() - y, 2));
 		if (distance >= max_d)
