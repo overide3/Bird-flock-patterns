@@ -201,6 +201,31 @@ void Bird::cohesion(std::vector<Bird> list)
 	dir = angle;
 }
 
-void Bird::update()
+void Bird::update(int ww, int wh)
 {
+	float n_x = cos(dir)*vel;
+	float n_y = sin(dir)*vel;
+
+	x += n_x;
+	y += n_y;
+
+	if (x > ww)
+	{
+		x = ww - (x - ww);
+
+	}
+	if (x < 0)
+	{
+		x = 0 - x;
+
+	}
+	if (y > wh)
+	{
+		y = wh - (y - wh);
+	}
+	if (y < 0)
+	{
+		y = 0 - y;
+	}
+	dir = atan(x / y);
 }
